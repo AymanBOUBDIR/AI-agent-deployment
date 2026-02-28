@@ -164,13 +164,16 @@ gcloud run deploy activities-advisor-service \
   --port 8000 \
   --set-env-vars="OPENWEATHERMAP_API_KEY=your_key,GROQ_API_KEY=your_key,TAVILY_API_KEY=your_key"
 ```
+![alt text](./img/image5.png)
+
+![alt text](./img/image4.png)
+
 
 **7. Access your service:**
 ```
 https://activities-advisor-service-XXXXXXXXXX.us-central1.run.app/plan-activity/?city=Casablanca
 ```
 ![alt text](./img/image1.png)
-
 ---
 
 ## 🔄 CI/CD Pipeline
