@@ -105,15 +105,15 @@ GET /plan-activity/?city={city_name}
 
 ### Example Request
 ```
-GET /plan-activity/?city=Tokyo
+GET /plan-activity/?city=Casablanca
 ```
 
 ### Example Response
 ```json
 {
-  "city": "Tokyo",
-  "greeting": "Hello from your Activities Advisor! Here's a plan for Tokyo:",
-  "plan": "The current weather in Tokyo is partly cloudy with a temperature of 9.14°C...",
+  "city": "Casablanca",
+  "greeting": "Hello from your Activities Advisor! Here's a plan for Casablanca:",
+  "plan": "The current weather in Tokyo is partly cloudy with a temperature of 15.19°C...",
   "error": null
 }
 ```
@@ -167,7 +167,7 @@ gcloud run deploy activities-advisor-service \
 
 **7. Access your service:**
 ```
-https://activities-advisor-service-XXXXXXXXXX.us-central1.run.app/plan-activity/?city=Tokyo
+https://activities-advisor-service-XXXXXXXXXX.us-central1.run.app/plan-activity/?city=Casablanca
 ```
 ![alt text](./img/image1.png)
 
