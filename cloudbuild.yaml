@@ -4,7 +4,7 @@ steps:
   args:
     - 'build'
     - '-t'
-    - 'us-central1-docker.pkg.dev/agent-project-ps/activities-agent-repo/activities-advisor:$COMMIT_SHA'
+    - 'us-central1-docker.pkg.dev/playground-s-11-ca9fe420/activities-advisor-repo/activities-advisor:$COMMIT_SHA'
     - '--platform'
     - 'linux/amd64'
     - '.'
@@ -14,7 +14,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args:
     - 'push'
-    - 'us-central1-docker.pkg.dev/agent-project-ps/activities-agent-repo/activities-advisor:$COMMIT_SHA'
+    - 'us-central1-docker.pkg.dev/playground-s-11-ca9fe420/activities-advisor-repo/activities-advisor:$COMMIT_SHA'
   id: 'Push to Artifact Registry'
 
 # 3. Deploy to Cloud Run
@@ -25,12 +25,14 @@ steps:
     - 'deploy'
     - 'activities-advisor-service'
     - '--image'
-    - 'us-central1-docker.pkg.dev/agent-project-ps/activities-agent-repo/activities-advisor:$COMMIT_SHA'
+    - 'us-central1-docker.pkg.dev/playground-s-11-ca9fe420/activities-advisor-repo/activities-advisor:$COMMIT_SHA'
     - '--region'
     - 'us-central1'
     - '--platform'
     - 'managed'
+    - '--allow-unauthenticated'
     - '--quiet'
   id: 'Deploy to Cloud Run'
+
 options:
-  logging: CLOUD_LOGGING_ONLY  
+  logging: CLOUD_LOGGING_ONLY
