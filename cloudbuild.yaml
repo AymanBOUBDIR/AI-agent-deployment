@@ -1,0 +1,36 @@
+steps:
+# 1. Build the Docker image
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+    - 'build'
+    - '-t'
+    - 'us-central1-docker.pkg.dev/agent-project-ps/activities-agent-repo/activities-advisor:$COMMIT_SHA'
+    - '--platform'
+    - 'linux/amd64'
+    - '.'
+  id: 'Build Docker Image'
+
+# 2. Push the Docker image to Artifact Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+    - 'push'
+    - 'us-central1-docker.pkg.dev/agent-project-ps/activities-agent-repo/activities-advisor:$COMMIT_SHA'
+  id: 'Push to Artifact Registry'
+
+# 3. Deploy to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args:
+    - 'run'
+    - 'deploy'
+    - 'activities-advisor-service'
+    - '--image'
+    - 'us-central1-docker.pkg.dev/agent-project-ps/activities-agent-repo/activities-advisor:$COMMIT_SHA'
+    - '--region'
+    - 'us-central1'
+    - '--platform'
+    - 'managed'
+    - '--quiet'
+  id: 'Deploy to Cloud Run'
+options:
+  logging: CLOUD_LOGGING_ONLY  
