@@ -13,7 +13,7 @@ User Request → FastAPI → LangChain Agent → OpenWeatherMap API
                               ↓
                         Activity Plan Response
 ```
-
+![alt text](./img/workflow.gif)
 ---
 
 ## 🚀 Features
