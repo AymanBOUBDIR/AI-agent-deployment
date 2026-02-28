@@ -113,7 +113,7 @@ GET /plan-activity/?city=Casablanca
 {
   "city": "Casablanca",
   "greeting": "Hello from your Activities Advisor! Here's a plan for Casablanca:",
-  "plan": "The current weather in Tokyo is partly cloudy with a temperature of 15.19°C...",
+  "plan": "The current weather in Casablanca is partly cloudy with a temperature of 15.19°C...",
   "error": null
 }
 ```
@@ -167,7 +167,6 @@ gcloud run deploy activities-advisor-service \
 ![alt text](./img/image5.png)
 
 ![alt text](./img/image4.png)
-
 
 **7. Access your service:**
 ```
